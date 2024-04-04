@@ -1,6 +1,6 @@
 <template>
   <div id="app" v-if="store.getters['Auth/authenticated']" class="main-left-sidebar">
-    <div class="topbar">
+    <div class="topbar fixed-top">
       <div class="container-fluid">
         <div class="row">
           <div class="col">
@@ -37,7 +37,7 @@ export default {
     return {
       sidebarItems: [
         { title: 'Inventory', link: '/Inventories', icon: 'fas fa-warehouse' },
-        { title: 'Item', link: '/item', icon: 'fas fa-box' },
+        { title: 'Item', link: '/items', icon: 'fas fa-box' },
       ]
     };
   },
@@ -52,11 +52,7 @@ export default {
     }),
 
     logout() {
-      this.logoutAction().then(() => {
-        this.$router.replace({
-          name: 'login'
-        })
-      });
+      this.logoutAction()
     }
   }
 };

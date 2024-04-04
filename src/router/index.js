@@ -4,6 +4,8 @@ import Register from "../components/Auth/Register.vue";
 import Inventories from "../components/Inventories/Inventories.vue";
 import EditInventory from "../components/Inventories/EditInventory.vue";
 import AddInventory from "../components/Inventories/AddInventory.vue";
+import Items from "../components/Items/Items.vue";
+import AddItem from "../components/Items/AddItem.vue";
 
 export const routes = [
   {
@@ -13,7 +15,7 @@ export const routes = [
     beforeEnter: (to, from, next) => {
       if (store.getters['Auth/authenticated']) {
         return next({
-          name: 'Inventories'
+          name: 'inventories'
         });
       }
       next();
@@ -26,7 +28,7 @@ export const routes = [
     beforeEnter: (to, from, next) => {
       if (store.getters['Auth/authenticated']) {
         return next({
-          name: 'home'
+          name: 'inventories'
         });
       }
       next();
@@ -62,6 +64,46 @@ export const routes = [
   {
     path: '/edit-inventory/:id',
     name: 'edit_inventory',
+    component: EditInventory ,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters['Auth/authenticated']) {
+        return next({
+          name: 'login'
+        });
+      }
+      next();
+    }
+  },
+
+  {
+    path: '/items',
+    name: 'items',
+    component: Items,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters['Auth/authenticated']) {
+        return next({
+          name: 'login'
+        });
+      }
+      next();
+    }
+  },
+  {
+    path: '/add-item',
+    name: 'add_item',
+    component: AddItem,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters['Auth/authenticated']) {
+        return next({
+          name: 'login'
+        });
+      }
+      next();
+    }
+  },
+  {
+    path: '/edit-item/:id',
+    name: 'edit_item',
     component: EditInventory ,
     beforeEnter: (to, from, next) => {
       if (!store.getters['Auth/authenticated']) {

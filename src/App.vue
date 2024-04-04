@@ -25,6 +25,7 @@ export default {
 
 .main-content {
   margin-left: 280px;
-  margin-right: 280px;
+  margin-right: 75px;
+  margin-top: 40px;
 }
 </style>

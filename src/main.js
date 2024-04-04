@@ -11,7 +11,7 @@ import { setupStoreSubscriber } from './store/subscriber';
 require('./store/subscriber');
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/api";
-Vue.prototype.$appURL = "http://127.0.0.1:8000/"
+Vue.prototype.$appURL = "http://127.0.0.1:8000"
 
 Vue.use(VueRouter);
 

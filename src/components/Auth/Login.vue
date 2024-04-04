@@ -39,7 +39,7 @@ export default {
     if (this.$store.state["Auth/token"] !== '') {
       this.refresh(this.$store.state["Auth/token"]).then(() => {
         if (! this.refreshFailed) {
-          this.$router.replace({name: 'home'})
+          this.$router.replace({name: 'inventories'})
         }
       })
     }
@@ -52,7 +52,7 @@ export default {
     submit() {
       this.login(this.user).then(() => {
         if (! this.loginFailed) {
-          this.$router.replace({name: 'home'})
+          this.$router.replace({name: 'inventories'})
         }
       });
     }

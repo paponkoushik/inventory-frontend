@@ -53,18 +53,11 @@ export default {
       register: 'Auth/register'
     }),
     submit() {
-      console.log('calling')
       this.register(this.user).then(() => {
         if (! this.signupFailed) {
-          this.$router.replace({name: 'home'})
+          this.$router.replace({name: 'inventories'})
         }
       });
-
-      // this.register(this.user).then(() => {
-      //   this.$router.replace({ name: 'login' });
-      // }).catch(error => {
-      //   console.error("Registration failed:", error);
-      // });
     }
   }
 };
