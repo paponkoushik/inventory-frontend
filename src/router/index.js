@@ -1,10 +1,9 @@
 import Login from "../components/Auth/Login";
 import store from "../store/index"
-import Home from "../components/Social/Home.vue";
-import Profile from "../components/Social/Profile.vue";
-import Followers from "../components/Social/Followers.vue";
-import Following from "../components/Social/Following.vue";
 import Register from "../components/Auth/Register.vue";
+import Inventories from "../components/Inventories/Inventories.vue";
+import EditInventory from "../components/Inventories/EditInventory.vue";
+import AddInventory from "../components/Inventories/AddInventory.vue";
 
 export const routes = [
   {
@@ -14,7 +13,7 @@ export const routes = [
     beforeEnter: (to, from, next) => {
       if (store.getters['Auth/authenticated']) {
         return next({
-          name: 'home'
+          name: 'Inventories'
         });
       }
       next();
@@ -35,9 +34,9 @@ export const routes = [
   },
 
   {
-    path: '/home',
-    name: 'home',
-    component: Home,
+    path: '/inventories',
+    name: 'inventories',
+    component: Inventories,
     beforeEnter: (to, from, next) => {
       if (!store.getters['Auth/authenticated']) {
         return next({
@@ -48,10 +47,9 @@ export const routes = [
     }
   },
   {
-    path: '/profile/:id?',
-    name: 'profile',
-    component: Profile,
-    props:true,
+    path: '/add-inventory',
+    name: 'add_inventory',
+    component: AddInventory,
     beforeEnter: (to, from, next) => {
       if (!store.getters['Auth/authenticated']) {
         return next({
@@ -62,24 +60,9 @@ export const routes = [
     }
   },
   {
-    path: '/followers/:id?',
-    name: 'followers',
-    component: Followers,
-    props:true,
-    beforeEnter: (to, from, next) => {
-      if (!store.getters['Auth/authenticated']) {
-        return next({
-          name: 'login'
-        });
-      }
-      next();
-    }
-  },
-  {
-    path: '/following/:id?',
-    name: 'following',
-    component: Following,
-    props:true,
+    path: '/edit-inventory/:id',
+    name: 'edit_inventory',
+    component: EditInventory ,
     beforeEnter: (to, from, next) => {
       if (!store.getters['Auth/authenticated']) {
         return next({

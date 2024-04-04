@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       sidebarItems: [
-        { title: 'Inventory', link: '/inventory', icon: 'fas fa-warehouse' },
+        { title: 'Inventory', link: '/Inventories', icon: 'fas fa-warehouse' },
         { title: 'Item', link: '/item', icon: 'fas fa-box' },
       ]
     };
