@@ -8,7 +8,7 @@
         <div class="card-header">
           <div class="d-flex justify-content-between align-items-center">
             <span>Inventories</span>
-            <router-link to="/add-inventory" class="btn btn-primary">Add Inventory</router-link>
+            <router-link to="inventories/add" class="btn btn-primary">Add Inventory</router-link>
           </div>
         </div>
         <div class="card-body">
@@ -25,7 +25,7 @@
               <td>{{inventory.name}}</td>
               <td>{{inventory.description}}</td>
               <td class="text-right">
-                <router-link :to="`/edit-inventory/${inventory.id}`" class="btn btn-outline-primary">Edit</router-link>
+                <router-link :to="`/inventories/edit/${inventory.id}`" class="btn btn-outline-primary">Edit</router-link>
                 <button class="btn btn-outline-danger ml-2" @click.prevent="deleteInventory(inventory)">Delete</button>
               </td>
             </tr>

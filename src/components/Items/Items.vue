@@ -8,7 +8,7 @@
         <div class="card-header">
           <div class="d-flex justify-content-between align-items-center">
             <span>Items</span>
-            <router-link to="/add-item" class="btn btn-primary">Add Item</router-link>
+            <router-link to="/items/add" class="btn btn-primary">Add Item</router-link>
           </div>
         </div>
         <div class="card-body">
@@ -31,7 +31,7 @@
                 <img v-if="item.image" :src="`${$appURL + item.image}`" width="80" height="80"/>
               </td>
               <td class="text-right">
-                <router-link :to="`/edit-item/${item.id}`" class="btn btn-outline-primary">Edit</router-link>
+                <router-link :to="`items/edit/${item.id}`" class="btn btn-outline-primary">Edit</router-link>
                 <button class="btn btn-outline-danger ml-2" @click.prevent="deleteItem(item)">Delete</button>
               </td>
             </tr>

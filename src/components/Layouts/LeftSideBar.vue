@@ -19,7 +19,7 @@
     <div class="sidebar">
       <ul class="nav flex-column">
         <li class="nav-item" v-for="(item, index) in sidebarItems" :key="index">
-          <router-link :to="item.link" class="nav-link">
+          <router-link :to="item.link" class="nav-link" :class="{ 'active': isItemSelected(item.link) }">
             <i :class="item.icon"></i>
             {{ item.title }}
           </router-link>
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       sidebarItems: [
-        { title: 'Inventory', link: '/Inventories', icon: 'fas fa-warehouse' },
+        { title: 'Inventory', link: '/inventories', icon: 'fas fa-warehouse' },
         { title: 'Item', link: '/items', icon: 'fas fa-box' },
       ]
     };
@@ -53,6 +53,9 @@ export default {
 
     logout() {
       this.logoutAction()
+    },
+    isItemSelected(link) {
+      return this.$route.path === link || this.$route.path.startsWith(link + '/');
     }
   }
 };
@@ -75,7 +78,7 @@ export default {
   color: #fff;
   height: 100%;
   position: fixed;
-  top: 60px; /* Adjust this value based on your top bar height */
+  top: 60px;
   left: 0;
   overflow-y: auto;
 }
@@ -91,5 +94,10 @@ export default {
 
 .nav-link i {
   margin-right: 10px;
+}
+
+.nav-link.active {
+  background-color: #495057;
+  color:#0056b3
 }
 </style>

@@ -6,6 +6,7 @@ import EditInventory from "../components/Inventories/EditInventory.vue";
 import AddInventory from "../components/Inventories/AddInventory.vue";
 import Items from "../components/Items/Items.vue";
 import AddItem from "../components/Items/AddItem.vue";
+import EditItem from "../components/Items/EditItem.vue";
 
 export const routes = [
   {
@@ -49,7 +50,7 @@ export const routes = [
     }
   },
   {
-    path: '/add-inventory',
+    path: '/inventories/add',
     name: 'add_inventory',
     component: AddInventory,
     beforeEnter: (to, from, next) => {
@@ -62,7 +63,7 @@ export const routes = [
     }
   },
   {
-    path: '/edit-inventory/:id',
+    path: '/inventories/edit/:id',
     name: 'edit_inventory',
     component: EditInventory ,
     beforeEnter: (to, from, next) => {
@@ -89,7 +90,7 @@ export const routes = [
     }
   },
   {
-    path: '/add-item',
+    path: '/items/add',
     name: 'add_item',
     component: AddItem,
     beforeEnter: (to, from, next) => {
@@ -102,9 +103,9 @@ export const routes = [
     }
   },
   {
-    path: '/edit-item/:id',
+    path: '/items/edit/:id',
     name: 'edit_item',
-    component: EditInventory ,
+    component: EditItem ,
     beforeEnter: (to, from, next) => {
       if (!store.getters['Auth/authenticated']) {
         return next({
