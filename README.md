@@ -1,4 +1,4 @@
-# social-media-frontend
+# Inventory Management Frontend
 ## Use Node Version
 ```
 12.14.1 or any 12
