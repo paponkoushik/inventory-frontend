@@ -4,9 +4,10 @@
 12.14.1 or any 12
 ```
 
-### In main js file add you backend api base url
+### In main js file add you backend api base url and appUrl
 ```
 axios.defaults.baseURL = "http://localhost:8000/api";
+Vue.prototype.$appURL = "http://127.0.0.1:8000"
 ```
 
 ## Project setup
